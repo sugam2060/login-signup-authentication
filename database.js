@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 function connect(){
-     mongoose.connect("mongodb+srv://sugam2060:W07mLjoGwQCNMYqE@cluster0.czgcs38.mongodb.net/UserData").then(()=>{
+     mongoose.connect("<use your own mongoDB connection url for database>").then(()=>{
         console.log("connection established");
      }).catch((err)=>{
         console.log("connection failed",err);
