@@ -1,12 +1,15 @@
 const database = require("./database");
 const express = require("express");
 const zod = require("zod")
+const cors = require('cors')
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 database.connect();
 const app = express();
 
 const jwtpassword = "123455678910"
+
+app.use(cors());
 
 
 app.use(express.json());
