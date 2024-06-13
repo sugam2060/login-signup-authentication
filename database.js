@@ -1,8 +1,12 @@
+require('dotenv').config();
+
+const URL = process.env.mongoDB_URL
+
 
 const mongoose = require("mongoose");
 
 function connect(){
-     mongoose.connect("<use your own mongoDB connection url for database>").then(()=>{
+     mongoose.connect(URL).then(()=>{
         console.log("connection established");
      }).catch((err)=>{
         console.log("connection failed",err);

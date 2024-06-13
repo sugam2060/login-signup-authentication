@@ -6,8 +6,9 @@ const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 database.connect();
 const app = express();
+require('dotenv').config();
 
-const jwtpassword = "123455678910"
+const jwtpassword = process.env.jwtKEY
 
 app.use(cors());
 
@@ -78,7 +79,7 @@ async function validateUser(req,res,next){
     }
 }
 
-app.get('/login',validateUser,(req,res)=>{
+app.post('/login',validateUser,(req,res)=>{
     const token = jwt.sign({username:req.body.username},jwtpassword);
     res.json({
         token,
